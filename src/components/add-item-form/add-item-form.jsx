@@ -3,33 +3,36 @@ import './item-add-form.scss';
 
 export default class ItemAddForm extends Component {
 
-    // maxId = 100;
-
     state = {
-        text: ''
+        label: ''
     }
 
-    addItem = () => {
-        console.log("sfdfdf");
-    }
-
-    inputHandler = (e) => {
-        console.log(e.target.value);
-        let inputValue = e.target.value;
+    onLabelChange = (e) => {
         this.setState({
-            text: inputValue
+            label: e.target.value
         })
     }
-    render() {
 
-        const { text } = this.state.text;
+    onSubmit = (e) => {
+        e.preventDefault();
+        this.props.onItemAdded(this.state.label);
+        this.setState({
+            label: ''
+        })
+
+    }
+
+    render() {
         return (
-            <div className="item-add-form">
-                <input type="text" onChange={this.inputHandler} />
+            <form onSubmit={this.onSubmit} className="item-add-form">
+                <input type="text"
+                    className="form-control"
+                    onChange={this.onLabelChange}
+                    placeholder="What need to be done"
+                    value={this.state.label} />
                 <button
-                    onClick={() => this.props.onItemAdded(this.state.text)}
-                    className="btn btn-outline-secondary mt-2">Add ToDo</button>
-            </div>
+                    className="btn btn-outline-secondary">Add ToDo</button>
+            </form>
         );
     }
 }
