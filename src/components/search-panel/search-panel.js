@@ -22,7 +22,7 @@ export default class SearchPanel extends Component {
 
         return (
             <div className="search-panel d-flex align-items-center w-100">
-                <input className="search-input "
+                <input className="search-input form-control"
                     type="text"
                     style={searchStyle}
                     placeholder={searchText}

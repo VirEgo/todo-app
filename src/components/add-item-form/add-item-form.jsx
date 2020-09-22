@@ -31,7 +31,7 @@ export default class ItemAddForm extends Component {
                     placeholder="What need to be done"
                     value={this.state.label} />
                 <button
-                    className="btn btn-outline-secondary">Add ToDo</button>
+                    className="btn btn-outline-secondary ml-2">Add ToDo</button>
             </form>
         );
     }
